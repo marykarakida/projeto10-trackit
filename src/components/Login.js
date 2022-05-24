@@ -21,8 +21,8 @@ export default function Login() {
             email,
             password
         });
-        promise.then ((response) => {
-            const { image, token} = response;
+        promise.then (({data} )=> {
+            const { image, token} = data;
             setUserProfilePicture(image);
             setUserToken(token);
             navigate("/hoje");

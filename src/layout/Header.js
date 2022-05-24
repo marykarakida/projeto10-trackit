@@ -1,12 +1,16 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import UserContext from "../contexts/UserContext";
 
 export default function Header() {
+    const {userProfilePicture} = useContext(UserContext);
+
     return (
         <FixedContainer>
             <Content>
                 <AppName>TrackIt</AppName>
                 <ProfilePicture>
-                    <img src="" alt="Foto de perfil do usuário" />
+                    <img src={userProfilePicture} alt="Foto de perfil do usuário" />
                 </ProfilePicture>
             </Content>
         </FixedContainer>
@@ -43,6 +47,10 @@ const AppName = styled.h1 `
 
 const ProfilePicture = styled.div `
     height: 50px;
-    width: 50px;
+    min-width: 50px;
     border-radius: 98px;
+
+    img {
+        border-radius: 98px;
+    }
 `

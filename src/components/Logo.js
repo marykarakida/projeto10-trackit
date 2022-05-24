@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import logo from "../assets/images/logo.png"
 
 export default function Logo() {
     return (
         <ImageContainer>
-            <img src="./assets/images/logo.png" alt="Logo do app TrackIt" />
+            <img src={logo} alt="Logo do app TrackIt" />
         </ImageContainer>
     )
 }
