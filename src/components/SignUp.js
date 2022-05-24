@@ -35,7 +35,7 @@ export default function SignUp() {
     function showFormsState() {
         if (areInputFieldsDisabled) {
             return (
-                <Forms onSubmit={registerUser} disabled >
+                <Forms disabled >
                     <input required type="email" placeholder="email" value={email} ></input>
                     <input required type="password" placeholder="senha" value={password} ></input>
                     <input required type="text" placeholder="nome" value={name} ></input>
@@ -107,6 +107,7 @@ const Button = styled.button`
     opacity: ${props => props.disabled ? 0.7 : 1 };
     font-size: 20px;
     color: #FFFFFF;
+    cursor: pointer;
 `
 
 const LoginLink = styled(Link)`
