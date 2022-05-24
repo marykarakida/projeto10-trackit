@@ -9,12 +9,15 @@ export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/historico" element={<HomePage />}></Route>
+                <Route path="/" element={<HomePage />}></Route>
                 <Route path="/cadastro" element={<SignUpPage />}></Route>
                 <Route path="/habitos" element={<HabitsPage />}></Route>
                 <Route path="/hoje" element={<TodayPage />}></Route>
-                <Route path="/" element={<HistoryPage />}></Route>
+                <Route path="/historico" element={<HistoryPage />}></Route>
             </Routes>
         </BrowserRouter>
     )
 }
+
+//maryjane@email.com
+//Zanahoria3000
