@@ -13,20 +13,15 @@ export default function Habits() {
     const [userHabits, setUserHabits] = useState(null);
 
     useEffect(() => {
-        getUserHabitsList();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    function getUserHabitsList() {
         const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits";
         const promise = axios.get(URL, {
             headers: {Authorization: `Bearer ${userToken}`}
         });
         promise.then(({data})=> {
             setUserHabits(data);
-            console.log(data)
         });
-    }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     function addNewHabitToList(newHabit) {
         setUserHabits([...userHabits, newHabit]);

@@ -36,7 +36,7 @@ export default function UserHabit(props) {
     return (
         <Habit>
             <TopBar>
-                <p>{habit.name}</p>
+                <h3>{habit.name}</h3>
                 <ion-icon name="trash-outline" onClick={deleteHabit} ></ion-icon>
             </TopBar>
             <div>

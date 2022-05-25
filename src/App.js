@@ -11,9 +11,10 @@ import TodayPage from "./pages/TodayPage";
 export default function App() {
     const [userToken, setUserToken] = useState("");
     const [userProfilePicture, setUserProfilePicture] = useState("");
+    const [dailyProgress, setDailyProgress] = useState(0);
 
     return (
-        <UserContext.Provider value={{userToken, userProfilePicture, setUserToken, setUserProfilePicture}}>
+        <UserContext.Provider value={{userToken, userProfilePicture, dailyProgress, setUserToken, setUserProfilePicture, setDailyProgress}}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<HomePage />}></Route>
