@@ -17,7 +17,8 @@ export default function SignUp() {
         event.preventDefault();
         setAreInputFieldsDisabled(true);
 
-        const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up", {
+        const URL ="https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up"
+        const promise = axios.post(URL, {
             email,
             name,
             image,
@@ -90,7 +91,7 @@ const Forms = styled.form`
 
     input::placeholder {
         font-size: 20px;
-        color: #DBDBDB;
+        color: ${props => props.disabled ? "#AFAFAF" : "#DBDBDB" };
     }
 `
 

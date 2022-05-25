@@ -17,7 +17,8 @@ export default function Login() {
         event.preventDefault();
         setAreInputFieldsDisabled(true);
 
-        const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login", {
+        const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login"
+        const promise = axios.post(URL, {
             email,
             password
         });
@@ -87,7 +88,7 @@ const Forms = styled.form`
 
     input::placeholder {
         font-size: 20px;
-        color: #DBDBDB;
+        color: ${props => props.disabled ? "#AFAFAF" : "#DBDBDB" };
     }
 `
 
