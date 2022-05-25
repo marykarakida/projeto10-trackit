@@ -1,20 +1,14 @@
-import { useState } from "react"; 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UserContext from "./contexts/UserContext";
+import { UserContextProvider } from "./contexts/UserContext";
 import HabitsPage from "./pages/HabitsPage";
 import HistoryPage from "./pages/HistoryPage";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import TodayPage from "./pages/TodayPage";
 
-
 export default function App() {
-    const [userToken, setUserToken] = useState("");
-    const [userProfilePicture, setUserProfilePicture] = useState("");
-    const [dailyProgress, setDailyProgress] = useState(0);
-
     return (
-        <UserContext.Provider value={{userToken, userProfilePicture, dailyProgress, setUserToken, setUserProfilePicture, setDailyProgress}}>
+        <UserContextProvider>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<HomePage />}></Route>
@@ -24,9 +18,6 @@ export default function App() {
                     <Route path="/historico" element={<HistoryPage />}></Route>
                 </Routes>
             </BrowserRouter>
-        </UserContext.Provider>
+        </UserContextProvider>
     )
 }
-
-//maryjane@email.com
-//Zanahoria3000

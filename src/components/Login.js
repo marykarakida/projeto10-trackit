@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from  'react-loader-spinner';
 import styled from "styled-components";
@@ -12,6 +12,15 @@ export default function Login() {
     const [areInputFieldsDisabled, setAreInputFieldsDisabled] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    useEffect(() => {
+        const locallyStoredToken = localStorage.getItem("token");
+        const locallyStoredProfilePicture = localStorage.getItem("picture");
+
+        if (locallyStoredToken !== null && locallyStoredProfilePicture !== null) {
+            navigate("./hoje", {replace: true});
+        }
+    }, []);
 
     function loginToApp(event) {
         event.preventDefault();
