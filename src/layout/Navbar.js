@@ -1,16 +1,20 @@
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { useContext } from "react";
 import 'react-circular-progressbar/dist/styles.css';
-import styled from "styled-components";
+import UserContext from "../contexts/UserContext";
 
 export default function Navbar() {
+    const { dailyProgress } = useContext(UserContext);
+
     return (
         <FixedContainer>
             <Content>
                 <NavbarLink to="/habitos">Hábitos</NavbarLink>
                 <NavbarLink to="/hoje">
                     <DailyProgressbar>
-                            <CircularProgressbar background={true} backgroundPadding={6} value={50} text="Hoje"/>
+                            <CircularProgressbar background={true} backgroundPadding={6} value={dailyProgress} text="Hoje"/>
                     </DailyProgressbar>
                 </NavbarLink>
                 <NavbarLink to="/historico">Histórico</NavbarLink>
