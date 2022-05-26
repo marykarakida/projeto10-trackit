@@ -180,6 +180,7 @@ const Weekday = styled.div`
 const ButtonContainer = styled.div`
     display: flex;
     justify-content: flex-end;
+    gap: 10px;
     margin: 0 16px 16px;
 
     button {

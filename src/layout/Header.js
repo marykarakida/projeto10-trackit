@@ -22,6 +22,7 @@ const FixedContainer = styled.div `
     top: 0;
     right: 0;
     left: 0;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +48,7 @@ const AppName = styled.h1 `
 
 const ProfilePicture = styled.div `
     height: 50px;
-    min-width: 50px;
+    max-width: 50px;
     border-radius: 98px;
 
     img {

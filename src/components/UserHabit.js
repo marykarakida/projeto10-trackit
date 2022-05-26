@@ -71,7 +71,7 @@ const TopBar = styled.div `
 
     ion-icon {
         height: 15px;
-        width: 13px;
+        min-width: 13px;
         cursor: pointer;
     }
 `
