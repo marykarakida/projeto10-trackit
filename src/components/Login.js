@@ -20,6 +20,7 @@ export default function Login() {
         if (locallyStoredToken !== null && locallyStoredProfilePicture !== null) {
             navigate("./hoje", {replace: true});
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     function loginToApp(event) {

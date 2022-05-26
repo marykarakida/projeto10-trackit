@@ -1,12 +1,30 @@
+import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import 'react-circular-progressbar/dist/styles.css';
 import UserContext from "../contexts/UserContext";
 
 export default function Navbar() {
-    const { dailyProgress } = useContext(UserContext);
+    const { userToken, dailyProgress, setDailyProgress } = useContext(UserContext);
+
+    useEffect(() => {
+        if (dailyProgress === null) {
+            const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today";
+            const promise = axios.get(URL, {
+                headers: {Authorization: `Bearer ${userToken}`}
+            });
+            promise.then(({data})=> updateDailyProgress(data));
+        }
+    }) 
+
+    function updateDailyProgress(habits) {
+        const finishedHabitsCounter = habits.filter((habit) => habit.done === true).length;
+        const progress = Math.ceil(finishedHabitsCounter / habits.length * 100);
+
+        setDailyProgress(progress);
+    }
 
     return (
         <FixedContainer>

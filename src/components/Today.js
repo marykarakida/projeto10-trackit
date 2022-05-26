@@ -18,7 +18,6 @@ export default function Today() {
             headers: {Authorization: `Bearer ${userToken}`}
         });
         promise.then(({data})=> {
-            updateDailyProgress(data)   
             setDailyHabits(data)
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -56,11 +55,14 @@ export default function Today() {
     }
 
     function showTopBar() {
-        if (dailyHabits === null) {
-            return <ThreeDots color="#FFFFFF" height={20} width={50} />
-        }
-
         const currentDate = dayjs().locale('pt-br').format("dddd, D/MM");
+        if (dailyHabits === null) {
+            return (
+                <TopBar>
+                    <h2>{currentDate.charAt(0).toUpperCase() + currentDate.slice(1)}</h2>
+                </TopBar>
+        )}
+
         if (dailyProgress === 0) {
             return (
                 <TopBar>
@@ -78,7 +80,7 @@ export default function Today() {
 
     function showUserHabitsList() {
         if (dailyHabits === null) {
-            return <></>
+            return <ThreeDots color="#FFFFFF" height={20} width={50} />
         } else {
             return (
                 <UserDailyHabitsList>

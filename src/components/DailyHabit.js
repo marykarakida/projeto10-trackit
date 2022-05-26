@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function DailyHabit(props) {
     const { habit, changeHabitStaus } = props;
 
-    const newHighestSequence = habit.currentSequence >= habit.highestSequence && habit.highestSequence !== 0
+    const newHighestSequence = habit.currentSequence >= habit.highestSequence && habit.done;
     const highestSequence = habit.currentSequence >= habit.highestSequence ? habit.currentSequence : habit.highestSequence;
 
     return (

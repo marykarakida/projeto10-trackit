@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, createContext } from "react";
 
 const UserContext = createContext();
 
@@ -7,13 +7,10 @@ export function UserContextProvider(props) {
 
     const [userToken, setUserToken] = useState("");
     const [userProfilePicture, setUserProfilePicture] = useState("");
-    const [dailyProgress, setDailyProgress] = useState(0);
+    const [dailyProgress, setDailyProgress] = useState(null);
 
     const locallyStoredToken = localStorage.getItem("token");
     const locallyStoredProfilePicture = localStorage.getItem("picture");
-
-    console.log(userToken);
-    console.log(userProfilePicture);
 
     if ((locallyStoredToken === null && locallyStoredProfilePicture === null) && (userToken !== "" && userProfilePicture !== "")) {
         localStorage.setItem("token", userToken);

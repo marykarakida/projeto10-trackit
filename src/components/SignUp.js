@@ -25,7 +25,7 @@ export default function SignUp() {
             password
         });
         promise.then (() => {
-            navigate("/");
+            navigate("/", {replace: true});
         })
         promise.catch(() => {
             alert("Houve algum erro durante o cadastro :( Confira se os dados estão preenchidos corretamente.");
