@@ -54,26 +54,34 @@ export default function Habits() {
     const warning = showWarning();
 
     return (
-        <Content>
-            <TopBar>
-                <h2>Meus hábitos</h2>
-                <AddButton onClick={() => setIsAddButtonClicked(!isAddButtonClicked)}>+</AddButton>
-            </TopBar>
-            <AddHabitInterface isAddButtonClicked={isAddButtonClicked} setIsAddButtonClicked={setIsAddButtonClicked} addNewHabitToList={addNewHabitToList} />
-            <UserHabitsList>
-                {userHabitsList}
-            </UserHabitsList>
-            {warning}
-        </Content>
+        <Container>
+            <Content>
+                <TopBar>
+                    <h2>Meus hábitos</h2>
+                    <AddButton onClick={() => setIsAddButtonClicked(!isAddButtonClicked)}>+</AddButton>
+                </TopBar>
+                <AddHabitInterface isAddButtonClicked={isAddButtonClicked} setIsAddButtonClicked={setIsAddButtonClicked} addNewHabitToList={addNewHabitToList} />
+                <UserHabitsList>
+                    {userHabitsList}
+                </UserHabitsList>
+                {warning}
+            </Content>
+        </Container>
     )
 }
+
+const Container = styled.div `
+    padding: 70px 0;
+    min-height: 100vh;
+    background-color: #F2F2F2;
+`
 
 const Content = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 90px auto 120px;
-    padding: 0 18px;
+    margin: 0 auto;
+    padding: 10px 18px 40px;
     max-width: 636px;
 `
 

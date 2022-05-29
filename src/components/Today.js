@@ -93,19 +93,27 @@ export default function Today() {
     const userDailyHabitsList = showUserHabitsList();
 
     return (
-        <Content>
-            {topBar}
-            {userDailyHabitsList}
-        </Content>
+        <Container>
+            <Content>
+                {topBar}
+                {userDailyHabitsList}
+            </Content>
+        </Container>
     )
 }
+
+const Container = styled.div `
+    padding: 70px 0;
+    min-height: 100vh;
+    background-color: #F2F2F2;
+`
 
 const Content = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 90px auto 120px;
-    padding: 0 18px;
+    margin: 0 auto;
+    padding: 10px 18px 40px;
     max-width: 636px;
 `
 

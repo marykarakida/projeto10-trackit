@@ -5,11 +5,13 @@ import HistoryPage from "./pages/HistoryPage";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import TodayPage from "./pages/TodayPage";
+import GlobalStyle from "./globalStyles";
 
 export default function App() {
     return (
         <UserContextProvider>
             <BrowserRouter>
+                <GlobalStyle />
                 <Routes>
                     <Route path="/" element={<HomePage />}></Route>
                     <Route path="/cadastro" element={<SignUpPage />}></Route>

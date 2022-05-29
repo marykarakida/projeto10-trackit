@@ -121,5 +121,6 @@ const Button = styled.button`
 const SignUpLink = styled(Link)`
     font-family: 'Lexend Deca', sans-serif;
     font-size: 14px;
+    text-decoration: underline;
     color: #52B6FF;
 `

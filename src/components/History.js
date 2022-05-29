@@ -40,7 +40,7 @@ export default function History() {
         }
     }
 
-    function showClickedDayHabits(value, event) {
+    function showClickedDayHabits(value) {
         const tileDate = dayjs(value).format("DD/MM/YYYY");
 
         for (let i = 0 ; i < habitsHistory.length ; i ++) {
@@ -62,7 +62,7 @@ export default function History() {
             <HabitCalendar 
                 calendarType="US"  
                 tileClassName={({ activeStartDate, date, view }) => changeDay(date)} 
-                onClickDay={(value, event) => showClickedDayHabits(value, event)}
+                onClickDay={(value, event) => showClickedDayHabits(value)}
             />
         )}
     }
@@ -97,7 +97,7 @@ export default function History() {
     const clickedDay = showClickedDay();
 
     return (
-        <>
+        <Container>
             <Content>
                 <TopBar>
                     <h2>Histórico</h2>
@@ -105,16 +105,22 @@ export default function History() {
                 {habitCalendar}
                 {clickedDay}   
             </Content>
-        </>
+        </Container>
     )
 }
+
+const Container = styled.div `
+    padding: 70px 0;
+    min-height: 100vh;
+    background-color: #F2F2F2;
+`
 
 const Content = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 90px auto 120px;
-    padding: 0 18px;
+    margin: 0 auto;
+    padding: 10px 18px 40px;
     max-width: 636px;
 `
 
